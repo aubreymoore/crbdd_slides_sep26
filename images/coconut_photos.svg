@@ -1,0 +1,218 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="100%" height="100%">
+  <defs>
+    <!-- Soft realistic drop shadow for photo cards -->
+    <filter id="photo-shadow" x="-20%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="3" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+
+    <!-- Clip path for photo inner area (160x170 standard image within frame) -->
+    <clipPath id="photo-clip">
+      <rect x="10" y="10" width="160" height="170" rx="2" />
+    </clipPath>
+
+    <!-- Gradients for different photo background lighting/skies -->
+    <linearGradient id="sky-day" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a86ff"/>
+      <stop offset="60%" stop-color="#80b918"/>
+      <stop offset="100%" stop-color="#f4a261"/>
+    </linearGradient>
+
+    <linearGradient id="sky-sunset" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2b1e3a"/>
+      <stop offset="35%" stop-color="#88304e"/>
+      <stop offset="70%" stop-color="#e23e57"/>
+      <stop offset="100%" stop-color="#ffac41"/>
+    </linearGradient>
+
+    <linearGradient id="sky-noon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#118ab2"/>
+      <stop offset="50%" stop-color="#06d6a0"/>
+      <stop offset="100%" stop-color="#ffd166"/>
+    </linearGradient>
+
+    <linearGradient id="sky-twilight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1b2a"/>
+      <stop offset="50%" stop-color="#415a77"/>
+      <stop offset="100%" stop-color="#e0e1dd"/>
+    </linearGradient>
+
+    <linearGradient id="sky-warm" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff7b00"/>
+      <stop offset="60%" stop-color="#ffae00"/>
+      <stop offset="100%" stop-color="#ffee53"/>
+    </linearGradient>
+
+    <!-- Reusable Silhouette Coconut Palm Tree -->
+    <g id="palm-tree-dark">
+      <!-- Trunk -->
+      <path d="M 80,180 Q 70,120 100,60 Q 94,120 72,180 Z" fill="#2d1d11" />
+      <!-- Coconuts -->
+      <circle cx="96" cy="64" r="4" fill="#1b1009" />
+      <circle cx="102" cy="65" r="4.5" fill="#2d1d11" />
+      <circle cx="98" cy="70" r="4" fill="#110904" />
+      <!-- Fronds -->
+      <path d="M 98,62 Q 60,30 20,45 Q 55,48 95,65 Z" fill="#1b2813" />
+      <path d="M 100,60 Q 80,15 45,10 Q 72,28 97,60 Z" fill="#141f0e" />
+      <path d="M 100,60 Q 120,10 155,20 Q 125,32 102,62 Z" fill="#1b2813" />
+      <path d="M 102,63 Q 145,35 170,60 Q 138,62 104,66 Z" fill="#0f1909" />
+      <path d="M 101,65 Q 135,80 155,115 Q 125,95 99,69 Z" fill="#1b2813" />
+      <path d="M 96,66 Q 60,85 40,120 Q 65,95 94,68 Z" fill="#141f0e" />
+    </g>
+
+    <!-- Reusable Detailed Green Palm Tree -->
+    <g id="palm-tree-green">
+      <!-- Trunk -->
+      <path d="M 90,180 Q 110,110 80,50 Q 102,105 82,180 Z" fill="#6b4d38" />
+      <!-- Trunk Rings -->
+      <path d="M 88,160 Q 94,157 98,161" stroke="#4a3322" stroke-width="2" fill="none"/>
+      <path d="M 86,130 Q 94,127 97,131" stroke="#4a3322" stroke-width="2" fill="none"/>
+      <path d="M 83,100 Q 90,97 93,101" stroke="#4a3322" stroke-width="2" fill="none"/>
+      <!-- Coconuts -->
+      <circle cx="76" cy="54" r="5" fill="#588157" />
+      <circle cx="84" cy="55" r="5.5" fill="#3a5a40" />
+      <circle cx="80" cy="60" r="5" fill="#344e41" />
+      <!-- Lush Fronds -->
+      <path d="M 80,50 Q 30,20 5,40 Q 40,45 77,52 Z" fill="#38b000" />
+      <path d="M 80,50 Q 50,5 25,10 Q 52,22 78,48 Z" fill="#007200" />
+      <path d="M 80,50 Q 100,0 140,5 Q 110,22 83,49 Z" fill="#70e000" />
+      <path d="M 80,50 Q 130,25 160,50 Q 120,55 84,53 Z" fill="#38b000" />
+      <path d="M 80,52 Q 120,75 140,110 Q 110,85 82,56 Z" fill="#007200" />
+      <path d="M 78,53 Q 45,75 20,105 Q 48,85 75,55 Z" fill="#004b23" />
+    </g>
+  </defs>
+
+  <!-- Group containing entire haphazard photo stack centered -->
+  <g id="photo-stack">
+
+    <!-- Photo 1 (Bottom) -->
+    <g transform="translate(330, 220) rotate(-38)" filter="url(#photo-shadow)">
+      <rect x="0" y="0" width="180" height="210" rx="3" fill="#fafafa" stroke="#e0e0e0"/>
+      <g clip-path="url(#photo-clip)">
+        <rect x="10" y="10" width="160" height="170" fill="url(#sky-sunset)"/>
+        <circle cx="120" cy="120" r="25" fill="#ffe066" opacity="0.85"/>
+        <use href="#palm-tree-dark" x="-10" y="10" transform="scale(0.95)"/>
+      </g>
+      <text x="90" y="198" font-family="sans-serif" font-size="10" fill="#777" text-anchor="middle">Sunset Cove</text>
+    </g>
+
+    <!-- Photo 2 -->
+    <g transform="translate(420, 200) rotate(28)" filter="url(#photo-shadow)">
+      <rect x="0" y="0" width="180" height="210" rx="3" fill="#ffffff" stroke="#e0e0e0"/>
+      <g clip-path="url(#photo-clip)">
+        <rect x="10" y="10" width="160" height="170" fill="url(#sky-noon)"/>
+        <ellipse cx="80" cy="170" rx="90" ry="20" fill="#e9c46a"/>
+        <use href="#palm-tree-green" x="10" y="-10" transform="scale(1.05)"/>
+      </g>
+      <text x="90" y="198" font-family="sans-serif" font-size="10" fill="#777" text-anchor="middle">High Noon</text>
+    </g>
+
+    <!-- Photo 3 -->
+    <g transform="translate(250, 240) rotate(-18)" filter="url(#photo-shadow)">
+      <rect x="0" y="0" width="180" height="210" rx="3" fill="#fcfcfc" stroke="#e0e0e0"/>
+      <g clip-path="url(#photo-clip)">
+        <rect x="10" y="10" width="160" height="170" fill="url(#sky-warm)"/>
+        <use href="#palm-tree-dark" x="-20" y="0" transform="scale(1.1)"/>
+        <use href="#palm-tree-dark" x="50" y="20" transform="scale(0.8)"/>
+      </g>
+      <text x="90" y="198" font-family="sans-serif" font-size="10" fill="#777" text-anchor="middle">Golden Hour</text>
+    </g>
+
+    <!-- Photo 4 -->
+    <g transform="translate(450, 260) rotate(-25)" filter="url(#photo-shadow)">
+      <rect x="0" y="0" width="180" height="210" rx="3" fill="#f8f8f8" stroke="#e0e0e0"/>
+      <g clip-path="url(#photo-clip)">
+        <rect x="10" y="10" width="160" height="170" fill="url(#sky-day)"/>
+        <path d="M 10,150 Q 90,130 170,160 L 170,180 L 10,180 Z" fill="#2a9d8f"/>
+        <use href="#palm-tree-green" x="-15" y="0" transform="scale(1)"/>
+      </g>
+      <text x="90" y="198" font-family="sans-serif" font-size="10" fill="#777" text-anchor="middle">Island Breeze</text>
+    </g>
+
+    <!-- Photo 5 -->
+    <g transform="translate(300, 170) rotate(15)" filter="url(#photo-shadow)">
+      <rect x="0" y="0" width="180" height="210" rx="3" fill="#ffffff" stroke="#e0e0e0"/>
+      <g clip-path="url(#photo-clip)">
+        <rect x="10" y="10" width="160" height="170" fill="url(#sky-twilight)"/>
+        <circle cx="50" cy="50" r="15" fill="#f4f1de" opacity="0.9"/>
+        <use href="#palm-tree-dark" x="5" y="5" transform="scale(1)"/>
+      </g>
+      <text x="90" y="198" font-family="sans-serif" font-size="10" fill="#777" text-anchor="middle">Full Moon Palm</text>
+    </g>
+
+    <!-- Photo 6 -->
+    <g transform="translate(380, 290) rotate(35)" filter="url(#photo-shadow)">
+      <rect x="0" y="0" width="180" height="210" rx="3" fill="#fbfbfb" stroke="#e0e0e0"/>
+      <g clip-path="url(#photo-clip)">
+        <rect x="10" y="10" width="160" height="170" fill="url(#sky-sunset)"/>
+        <use href="#palm-tree-dark" x="15" y="-5" transform="scale(1.05)"/>
+      </g>
+      <text x="90" y="198" font-family="sans-serif" font-size="10" fill="#777" text-anchor="middle">Dusk</text>
+    </g>
+
+    <!-- Photo 7 -->
+    <g transform="translate(230, 190) rotate(8)" filter="url(#photo-shadow)">
+      <rect x="0" y="0" width="180" height="210" rx="3" fill="#fdfdfd" stroke="#e0e0e0"/>
+      <g clip-path="url(#photo-clip)">
+        <rect x="10" y="10" width="160" height="170" fill="url(#sky-noon)"/>
+        <use href="#palm-tree-green" x="-30" y="10" transform="scale(1.1)"/>
+        <use href="#palm-tree-green" x="30" y="25" transform="scale(0.85)"/>
+      </g>
+      <text x="90" y="198" font-family="sans-serif" font-size="10" fill="#777" text-anchor="middle">Twin Palms</text>
+    </g>
+
+    <!-- Photo 8 -->
+    <g transform="translate(410, 180) rotate(-12)" filter="url(#photo-shadow)">
+      <rect x="0" y="0" width="180" height="210" rx="3" fill="#ffffff" stroke="#e0e0e0"/>
+      <g clip-path="url(#photo-clip)">
+        <rect x="10" y="10" width="160" height="170" fill="url(#sky-day)"/>
+        <use href="#palm-tree-green" x="0" y="-15" transform="scale(1.15)"/>
+      </g>
+      <text x="90" y="198" font-family="sans-serif" font-size="10" fill="#777" text-anchor="middle">Tropical Sky</text>
+    </g>
+
+    <!-- Photo 9 -->
+    <g transform="translate(310, 260) rotate(-7)" filter="url(#photo-shadow)">
+      <rect x="0" y="0" width="180" height="210" rx="3" fill="#f7f7f7" stroke="#e0e0e0"/>
+      <g clip-path="url(#photo-clip)">
+        <rect x="10" y="10" width="160" height="170" fill="url(#sky-warm)"/>
+        <use href="#palm-tree-dark" x="-10" y="10" transform="scale(0.95)"/>
+      </g>
+      <text x="90" y="198" font-family="sans-serif" font-size="10" fill="#777" text-anchor="middle">Sundown</text>
+    </g>
+
+    <!-- Photo 10 -->
+    <g transform="translate(280, 210) rotate(22)" filter="url(#photo-shadow)">
+      <rect x="0" y="0" width="180" height="210" rx="3" fill="#ffffff" stroke="#e0e0e0"/>
+      <g clip-path="url(#photo-clip)">
+        <rect x="10" y="10" width="160" height="170" fill="url(#sky-twilight)"/>
+        <use href="#palm-tree-dark" x="20" y="0" transform="scale(1)"/>
+      </g>
+      <text x="90" y="198" font-family="sans-serif" font-size="10" fill="#777" text-anchor="middle">Pacific Night</text>
+    </g>
+
+    <!-- Photo 11 -->
+    <g transform="translate(370, 220) rotate(-20)" filter="url(#photo-shadow)">
+      <rect x="0" y="0" width="180" height="210" rx="3" fill="#fafafa" stroke="#e0e0e0"/>
+      <g clip-path="url(#photo-clip)">
+        <rect x="10" y="10" width="160" height="170" fill="url(#sky-noon)"/>
+        <use href="#palm-tree-green" x="-20" y="-5" transform="scale(1.05)"/>
+      </g>
+      <text x="90" y="198" font-family="sans-serif" font-size="10" fill="#777" text-anchor="middle">Paradise</text>
+    </g>
+
+    <!-- Photo 12 (Top of stack) -->
+    <g transform="translate(330, 230) rotate(4)" filter="url(#photo-shadow)">
+      <rect x="0" y="0" width="180" height="210" rx="3" fill="#ffffff" stroke="#e5e5e5"/>
+      <g clip-path="url(#photo-clip)">
+        <rect x="10" y="10" width="160" height="170" fill="url(#sky-sunset)"/>
+        <circle cx="90" cy="110" r="30" fill="#ffb703" opacity="0.9"/>
+        <path d="M 10,165 Q 90,150 170,168 L 170,180 L 10,180 Z" fill="#1d3557"/>
+        <use href="#palm-tree-dark" x="-5" y="0" transform="scale(1.05)"/>
+      </g>
+      <!-- Small photo paper tape accent on top photo -->
+      <rect x="70" y="-8" width="40" height="16" fill="#ffffff" opacity="0.5" transform="rotate(-2, 90, 0)"/>
+      <text x="90" y="198" font-family="sans-serif" font-weight="bold" font-size="11" fill="#444" text-anchor="middle">Coconut Grove</text>
+    </g>
+
+  </g>
+</svg>
