@@ -1,1 +1,2 @@
 - vcuts.png from https://apps.lucidcentral.org/pppw_v10/text/web_full/entities/coconut_rhinoceros_beetle__oryctes_108.htm with caption "Photo 4. Close up of  characteristic shape of fronds eaten by adult coconut rhinoceros beetle, Oryctes rhinoceros. (Palau)"
+- first test upload to youtube at https://youtu.be/XD6vfCL6GoQ
