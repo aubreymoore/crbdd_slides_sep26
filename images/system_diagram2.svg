@@ -25,7 +25,7 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      inkscape:zoom="0.7180275"
-     inkscape:cx="855.8168"
+     inkscape:cx="855.12045"
      inkscape:cy="551.51091"
      inkscape:window-width="2560"
      inkscape:window-height="1043"
@@ -109,23 +109,7 @@
          d="M 3,-3 0,0 3,3"
          transform="rotate(180,0.125,0)"
          sodipodi:nodetypes="ccc"
-         id="path2" /></marker><marker
-       style="overflow:visible"
-       id="Triangle"
-       refX="7"
-       refY="0"
-       orient="auto-start-reverse"
-       inkscape:stockid="Triangle arrow"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid"><path
-         transform="scale(0.5)"
-         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
-         d="M 5.77,0 -2.88,5 V -5 Z"
-         id="path135" /></marker><style
+         id="path2" /></marker><style
        id="style610">
       .cls-1 {
         fill: #119dff;
@@ -231,12 +215,7 @@
        xml:space="preserve"
        transform="scale(0.26458333)"
        id="text9"
-       style="font-size:64px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect9);display:inline;fill:#000000;fill-opacity:1;stroke-width:11.3386;stroke-miterlimit:10.3" /><path
-       style="fill:#1a1a1a;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.865;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
-       d="m 100.3088,85.824625 34.90494,0.02823"
-       id="path34"
-       inkscape:connector-type="polyline"
-       inkscape:connector-curvature="0" /><g
+       style="font-size:64px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect9);display:inline;fill:#000000;fill-opacity:1;stroke-width:11.3386;stroke-miterlimit:10.3" /><g
        id="g3"
        transform="translate(-6.988013,30.422513)"
        sodipodi:insensitive="true"><rect

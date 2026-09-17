@@ -19,24 +19,11 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-
-<section>
-	<h2>Automated Detection of Coconut Rhinoceros Beetle Damage in Images</h2> 
-	<h3>Aubrey Moore and Sulav Paudel</h3>
-</section>
 
 <section data-background-image="images/title.svg" data-background-size="contain">
     <!-- Leave empty, or add text/elements to overlay on top of the SVG -->
 </section>
       
-<section data-background-image="images/cebu.svg" data-background-size="contain">
- 	<h2>Automated Detection of Coconut Rhinoceros Beetle Damage in Images</h2> 
-	<h3>Aubrey Moore and Sulav Paudel</h3>   
-</section>
-
-
 <section data-background-image="images/feeding_damage.svg" data-background-size="contain">   
     <!-- Leave empty, or add text/elements to overlay on top of the SVG -->
 </section>
@@ -65,41 +52,12 @@
 	- detecting v-cuts using elliptic Fourier descriptors followed by shape analysis
 </section>
 
-<section data-background-color="#0000ff">
-	<img src="images/coconut_photos.svg">
-</section>
-
 <section>
 	<h4>Previous Presentation on This Topic</h4>
 	<ul>
 		<li><a href="https://aubreymoore.github.io/crb-roadside-slides/">https://aubreymoore.github.io/crb-roadside-slides/</a></li>
 	</ul>
 </section>
-
-
-    <section>
-      <h3>Flowchart</h3>
-      <div class="mermaid">
-        <pre>
-          %%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true }}}%%
-          flowchart TD
-            A[Start] --> B{Is it?};
-            B -- Yes --> C[OK];
-            C --> D[Rethink];
-            D --> B;
-            B -- No ----> E[End];
-        </pre>
-      </div>
-    </section>
-
-	<section>
-		<div class="mermaid">
-			<pre>
-				flowchart LR
-				A[Input] --> B[<img src='https://upload.wikimedia.org/wikipedia/commons/0/06/DIKW_Pyramid.svg'>] --> C[Output]
-			</pre>
-		</div>
-	</section>
 
 
 			</div>
@@ -121,7 +79,7 @@
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [RevealMarkdown, RevealMermaid, RevealHighlight, RevealNotes],
-			});
+			});clearInterval
 		</script>
 	</body>
 </html>
