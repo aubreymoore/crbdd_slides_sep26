@@ -49,20 +49,72 @@ because these breeding sites provide an important transmission site for the viru
     <!-- Leave empty, or add text/elements to overlay on top of the SVG -->
 </section>
 
+
+<section data-markdown> 
+<textarea data-template>
+#### Remote sensing of CRB damage can be used for: 
+- early detection of CRB in new geographic areas
+- to monitor changes over time and space, especially in response to control activities
+<aside class="notes" data-markdown>
+- Remote sensing of CRB damage can be used (in conjunction with other methods such as pheromone trapping and eDNA) for: 
+	- early detection of CRB in new geographic areas
+	- to monitor changes over time and space, especially in response to control activities
+- The rest of this talk is about my attempts to build a system which automatically detects CRB damage in images 
+</aside>
+</textarea>
+</section>
+
 <section data-background-image="images/system_diagram1.svg" data-background-size="contain">
-    <!-- Leave empty, or add text/elements to overlay on top of the SVG -->
+    <aside class="notes" data-markdown="">
+		- this system is built using FOSS
+		- let's have a look at inputs and outputs. We will consider the processing pipeline as a black box right now.
+		- input is simply a list of images available on the host machine or anywhere on the web
+		- images may come from roadside CRB damage surveys of they may come from from the web
+		- you are probably aware of the recent discovery of CRB in Mexico from web images by our AgResearch New Zealand colleagues
+		- images can be in any format and may contain embedded GPS coordinates
+		- the main output is a SpatiaLite database which is a SQLite database with spatial superpowers
+		- it is a very powerful stand alone database which can be run just about anywhere
+		- the pipeline populates the database with data extracted from the images including dates, locations, and damage classes
+		- these database generates statistical reports
+		- Quantum GIS or QGIS can read the SpatiaLite data base directly and it is used to generate an interactive web
+		- outputs are automatically published an open access GitHub repository	 
+	</aside>
 </section>
 
 <section data-background-image="images/system_diagram2.svg" data-background-size="contain">
-    <!-- Leave empty, or add text/elements to overlay on top of the SVG -->
+	<aside class="notes" data-markdown="">
+		- Now let's open the black box containing the pipeline.
+		- You have to be very careful because there are lots of snakes inside the box.
+		- In step 1, latitude and longitude are extracted from the image file if GPS coordinates have been embedded
+		- In step 2, Meta's SAM3 model is used to locate all coconut palms and extract tree shapes as polygons
+		- In step 3, damage shapes are extracted from each tree and saved as polygons
+		- In steps 4 and 5 tree shapes and damage shapes are classified
+		- Note that SAM is the only AI model that I used
+		- The last 3 steps do not use AI but instead, they use conventional shape analysis techniques from the field of computer vision implemented using Python with the help of SpatiaLite spatial functions.
+		- In previous work, I tried to train an AI objector to find damage in the form of v-shaped cuts with limited success.
+		- I have recently realized that v-shaped cuts should be analyzed as simple shapes because **they are not objects** in the same sense that donut holes are not objects.
+	</aside>  
 </section>
 
 <section data-background-image="images/sam3_simple.svg" data-background-size="contain">
     <!-- Leave empty, or add text/elements to overlay on top of the SVG -->
+	<aside class="notes" data-markdown="">
+		- Coconut palms in images are detected using Meta's SAM3 model.
+		- SAM stands for Segment Anything Model.
+		- This model is pretrained on millions of images and it understands english.
+		- On the left is an image published on the web by the NY Times
+		- I politely asked SAM3 to find "coconut palm tree" in this image and got the results on the right.
+		- These results blew my mind.
+		- SAM3 found 2 coconut palms with high confidence and segmented them from the background
+	</aside>
 </section>
 
 <section data-background-image="images/sam3_complex.svg" data-background-size="contain">
-    <!-- Leave empty, or add text/elements to overlay on top of the SVG -->
+	<aside class="notes" data-markdown="">
+		- OK. Let's try that again with a more complex image.
+		- This image comes from a roadside survey of CRB damage on Efate Island in Vanuatu performed by Sulav Paudel about a year ago.
+		- Does a great job of finding coconut palms including dead ones. 
+	</aside>
 </section>
 
 <section data-markdown="">
