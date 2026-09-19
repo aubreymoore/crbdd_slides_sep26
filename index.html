@@ -34,62 +34,80 @@
 				<section data-background-image="images/feeding_damage.svg" data-background-size="contain"> 
 					<aside class="notes" data-markdown>
 					- Feeding damage to coconut palms is caused only by adults which bore into the crown to feed on sap.
-					- Beetles are not true defoliators. The damage is caused to developing leaves inside the crown as beetle bore through them on their way to the sap.
-					- When the fronds emerge from the crown several weeks later, they have these distinctive v-shaped cuts which can be seen for several hundred meters. 
-					- Tree mortality occurs only when the single meristem at the base of the the crown and this rarely happens at low population levels.
-					- It is not correct to refer to palms like those in these images as being "infested". CRB adults feed about once per month, feeding in a bore hole only 
-					for a few days.
-					- Referring to these trees as "infested" is incorrect. Chances are that no beetles where inside them when these photos were taken.
-					- All of these trees, accept for the dead one in the background, would have survived if further damage was stopped.
-					- Dead trees should be removed and processed so they don't become breeding sites for generations of grubs.
+					- CRB adults feed about once per month. They feed in a bore hole for only a few days and then leave the tree.
+					- Beetles are not true defoliators. The damage is caused to developing leaves inside the crown as the beetle bores through them on its  way to the sap.
+					- When these fronds emerge from the crown and expand several weeks later, distinctive v-shaped cuts become apparent and can be seen over a distance of several hundred meters. 
+					- Tree mortality occurs only when the single meristem at the base of the the crown is damaged. But this rarely happens at low population levels.
+					- Referring to the damaged trees in these photos as being "infested" is incorrect. There probably were no beetles inside them when the photos were taken.
+					- All of these trees, accept for the dead one in the background, would have survived if further damage had been stopped using insecticides or some other means.
+					- Removal of live trees, even heavily damaged ones, is not recommended.
+					- However, dead trees, such as the one in the background of the right-hand photo, should be removed and processed so they don't become a breeding site.
 					- But there is an exception to this. Leaving some dead palms standing is recommended where CRB populations are being controlled with OrNV
-					because these breeding sites provide an important transmission site for the virus.
+					because breeding sites in dead standing palms is an important transmission site for the virus.
+					- END
 					</aside>
 				</section>
 
 				<section data-markdown> 
-				<textarea data-template>
-				#### Remote sensing of CRB damage can be used for: 
-				- early detection of CRB in new geographic areas
-				- to monitor changes over time and space, especially in response to control activities
-				<aside class="notes" data-markdown>
-				- Remote sensing of CRB damage can be used (in conjunction with other methods such as pheromone trapping and eDNA) for: 
-					- early detection of CRB in new geographic areas
-					- to monitor changes over time and space, especially in response to control activities
-				- The rest of this talk is about my attempts to build a system which automatically detects CRB damage in images 
-				</aside>
-				</textarea>
+					<textarea data-template>
+						#### Remote sensing of CRB damage can be used for: 
+						- early detection of CRB in new geographic areas
+						- to monitor changes over time and space, especially in response to control activities
+						<aside class="notes" data-markdown>
+						- Remote sensing of CRB damage can be used for: 
+							- early detection of CRB in new geographic areas
+							- to monitor changes over time and space, especially in response to control activities
+							- PAUSE
+							- automated CRB damage surveys can be used in conjunction with other methods such as pheromone trapping and eDNA detection
+							- However, damage surveys are much faster and much cheaper and can they be done on islands with little technical or financial support, making this method ideal for early detection and rapid response.
+						- PAUSE
+						- Roadside surveys and web harvesting results in datasets containing many thousands of images.
+						- The rest of this talk is about my attempts to build a system which automatically scans images to detect and quantify CRB damage.
+						- END 
+						</aside>
+					</textarea> 
+				</section>
+
+				<section data-background-image="images/ingredients.svg" data-background-size="contain">
+					<aside class="notes" data-markdown>
+						 - The system I built runs free open source software.
+						 - Free public repositories on GitHub are used to share code and output, which includes interactive web maps.
+						 - This slide lists ingredients.
+						 	- Python: my favorite programming language, which is named after my favorite comedy show, Monty Python's Flying Circus
+							- SpatiaLite: an embedded database with geospatial superpowers
+							- QGIS: Quantum geographic information system. QGIS can read data directly from a SpatialLite database.
+							- SAM3: Meta's Segment Anything Model
+							- GitHub repositories are used for storing and sharing source code and results
+					</aside>
 				</section>
 
 				<section data-background-image="images/system_diagram1.svg" data-background-size="contain">
 					<aside class="notes" data-markdown="">
-						- this system is built using FOSS
 						- let's have a look at inputs and outputs. We will consider the processing pipeline as a black box right now.
-						- input is simply a list of images available on the host machine or anywhere on the web
-						- images may come from roadside CRB damage surveys of they may come from from the web
-						- you are probably aware of the recent discovery of CRB in Mexico from web images by our AgResearch New Zealand colleagues
-						- images can be in any format and may contain embedded GPS coordinates
-						- the main output is a SpatiaLite database which is a SQLite database with spatial superpowers
-						- it is a very powerful stand alone database which can be run just about anywhere
-						- the pipeline populates the database with data extracted from the images including dates, locations, and damage classes
-						- these database generates statistical reports
-						- Quantum GIS or QGIS can read the SpatiaLite data base directly and it is used to generate an interactive web
-						- outputs are automatically published an open access GitHub repository	 
+						- INPUTS
+							- input is simply a list of links to images available on the host machine or anywhere on the web
+							- images may come from roadside CRB damage surveys or random images harvested from the web
+							- images can be in any format and may contain embedded GPS coordinates
+						- OUTPUTS
+							- Outputs include a SpatiaLite database populated with results, a statistical report, and a web map
+							- Outputs are automatically pushed to a public GitHub repository
+						- END	 
 					</aside>
 				</section>
 
 				<section data-background-image="images/system_diagram2.svg" data-background-size="contain">
 					<aside class="notes" data-markdown="">
 						- Now let's open the black box containing the pipeline.
-						- You have to be very careful because there are lots of snakes inside the box.
+						- Care must be taken lots of snakes live inside.
 						- In step 1, latitude and longitude are extracted from the image file if GPS coordinates have been embedded
 						- In step 2, Meta's SAM3 model is used to locate all coconut palms and extract tree shapes as polygons
 						- In step 3, damage shapes are extracted from each tree and saved as polygons
 						- In steps 4 and 5 tree shapes and damage shapes are classified
-						- Note that SAM is the only AI model that I used
-						- The last 3 steps do not use AI but instead, they use conventional shape analysis techniques from the field of computer vision implemented using Python with the help of SpatiaLite spatial functions.
-						- In previous work, I tried to train an AI objector to find damage in the form of v-shaped cuts with limited success.
-						- I have recently realized that v-shaped cuts should be analyzed as simple shapes because **they are not objects** in the same sense that donut holes are not objects.
+						- Note that SAM is the only AI model that I used. It does a great job of finding coconut palm trees in images.
+						- In the remaining steps, I find and classify CRB feeding damage using conventional shape analysis techniques from the field of computer vision, implemented using Python with the help of SpatiaLite spatial functions.
+						- In previous work, I tried to train an AI objectors to find damage in the form of v-shaped cuts with limited success.
+						- I have recently realized that v-shaped cuts **not objects** in the same sense that donut holes are not objects. 
+						- That is why I switched to computer vision techniques for this task.
 					</aside>  
 				</section>
 
@@ -113,7 +131,8 @@
 						- Does a great job of finding coconut palms including dead ones. 
 					</aside>
 				</section>
-
+				
+				<!--	
 				<section data-markdown="">
 					- differentiating between live and dead trees using shape analysis
 				</section>
@@ -121,6 +140,26 @@
 				<section data-markdown>
 					- detecting v-cuts using elliptic Fourier descriptors followed by shape analysis
 				</section>
+				-->
+
+				<section data-markdown>
+					<textarea data-template>
+						- Case Study: CRB Damage Survey on Efate Island, Vanuatu by Sulav Paudel during November, 2025. [GitHub repository](https://github.com/aubreymoore/Efate2025)
+						<aside class="notes" data-markdown="">
+							- I don't have time to dive deeper into the code.
+							- I will finish my talk with a quick look at preliminary results for a CRB damage survey performed by Sulav on Efate
+							- The survey was performed using methods we use for 10 surveys on Guam, 1 survey on Rota and 1 survey on Majuro with the following exceptions:
+								- the smart phone camera was hand-held and not mounted to the outside of a vehicle  
+								- most shots were automatically triggered at 1 s intervals, but some were normal snapshots
+								- some shots were taken from a canoe. Now that's island style!
+							- when I press on the hyperlink below we will go to the public GitHub repository for this survey
+						</aside>
+					</textarea>
+				</section>
+
+
+				<section>FINIS</section>
+
 
 				<section>
 					<h4>Previous Presentation on This Topic</h4>
