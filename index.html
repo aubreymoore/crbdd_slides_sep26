@@ -35,15 +35,15 @@
 					<aside class="notes" data-markdown>
 					- Feeding damage to coconut palms is caused only by adults which bore into the crown to feed on sap.
 					- CRB adults feed about once per month. They feed in a bore hole for only a few days and then leave the tree.
-					- Beetles are not true defoliators. The damage is caused to developing leaves inside the crown as the beetle bores through them on its  way to the sap.
-					- When these fronds emerge from the crown and expand several weeks later, distinctive v-shaped cuts become apparent and can be seen over a distance of several hundred meters. 
+					- CRB are not true defoliators. Damage is caused to developing leaves inside the crown as the beetle bores through them on its  way to the sap.
+					- When these fronds emerge from the crown and expand, several weeks later, distinctive v-shaped cuts become apparent and can be seen over a distance of several hundred meters. 
 					- Tree mortality occurs only when the single meristem at the base of the the crown is damaged. But this rarely happens at low population levels.
 					- Referring to the damaged trees in these photos as being "infested" is incorrect. There probably were no beetles inside them when the photos were taken.
 					- All of these trees, accept for the dead one in the background, would have survived if further damage had been stopped using insecticides or some other means.
 					- Removal of live trees, even heavily damaged ones, is not recommended.
-					- However, dead trees, such as the one in the background of the right-hand photo, should be removed and processed so they don't become a breeding site.
+					- However, dead trees, such as the one in the background of the right-hand photo, should be removed and processed so they don't become breeding sites.
 					- But there is an exception to this. Leaving some dead palms standing is recommended where CRB populations are being controlled with OrNV
-					because breeding sites in dead standing palms is an important transmission site for the virus.
+					because breeding sites in dead standing palms are important for virus transmission.
 					- END
 					</aside>
 				</section>
@@ -100,12 +100,10 @@
 						- Now let's open the black box containing the pipeline.
 						- Care must be taken lots of snakes live inside.
 						- In step 1, latitude and longitude are extracted from the image file if GPS coordinates have been embedded
-						- In step 2, Meta's SAM3 model is used to locate all coconut palms and extract tree shapes as polygons
-						- In step 3, damage shapes are extracted from each tree and saved as polygons
-						- In steps 4 and 5 tree shapes and damage shapes are classified
-						- Note that SAM is the only AI model that I used. It does a great job of finding coconut palm trees in images.
+						- In step 2, the SAM3 model is used to locate all coconut palms and extract tree shapes as polygons
 						- In the remaining steps, I find and classify CRB feeding damage using conventional shape analysis techniques from the field of computer vision, implemented using Python with the help of SpatiaLite spatial functions.
-						- In previous work, I tried to train an AI objectors to find damage in the form of v-shaped cuts with limited success.
+						- Note that SAM is the only AI model that I used. It does a great job of finding coconut palm trees in images.
+						- In previous work, I tried to train an AI objector detectors to find damage in the form of v-shaped cuts with limited success.
 						- I have recently realized that v-shaped cuts **not objects** in the same sense that donut holes are not objects. 
 						- That is why I switched to computer vision techniques for this task.
 					</aside>  
@@ -115,44 +113,55 @@
 					<!-- Leave empty, or add text/elements to overlay on top of the SVG -->
 					<aside class="notes" data-markdown="">
 						- Coconut palms in images are detected using Meta's SAM3 model.
-						- SAM stands for Segment Anything Model.
 						- This model is pretrained on millions of images and it understands english.
+						- There is no need for annotation or training.
+						- PAUSE
 						- On the left is an image published on the web by the NY Times
-						- I politely asked SAM3 to find "coconut palm tree" in this image and got the results on the right.
+						- I politely prompted SAM3 to find "coconut palm tree" in this image and got the results on the right.
 						- These results blew my mind.
-						- SAM3 found 2 coconut palms with high confidence and segmented them from the background
+						- SAM3 found 2 coconut palms with high confidence and segmented them from the background with high enough resolution to see feeding damage
+						- END
 					</aside>
 				</section>
 
 				<section data-background-image="images/sam3_complex.svg" data-background-size="contain">
 					<aside class="notes" data-markdown="">
 						- OK. Let's try that again with a more complex image.
-						- This image comes from a roadside survey of CRB damage on Efate Island in Vanuatu performed by Sulav Paudel about a year ago.
+						- This image comes from a roadside CRB damage survey of Efate Island in Vanuatu performed by Sulav Paudel about a year ago.
 						- Does a great job of finding coconut palms including dead ones. 
 					</aside>
 				</section>
 				
-				<!--	
-				<section data-markdown="">
-					- differentiating between live and dead trees using shape analysis
+				<section data-background-image="images/all_green.svg" data-background-size="contain">
 				</section>
 
-				<section data-markdown>
-					- detecting v-cuts using elliptic Fourier descriptors followed by shape analysis
+				<section data-background-image="images/colored.svg" data-background-size="contain">
+					<aside class="notes" data-markdown="">
+					</aside>
 				</section>
-				-->
+				
+				<section data-background-image="images/green_brown.svg" data-background-size="contain">
+					<aside class="notes" data-markdown="">
+					</aside>
+				</section>
+
+				<section data-background-image="images/detecting_vcuts.svg" data-background-size="contain">
+					<aside class="notes" data-markdown="">
+					</aside>
+				</section>
 
 				<section data-markdown>
 					<textarea data-template>
 						- Case Study: CRB Damage Survey on Efate Island, Vanuatu by Sulav Paudel during November, 2025. [GitHub repository](https://github.com/aubreymoore/Efate2025)
-						<aside class="notes" data-markdown="">
-							- I don't have time to dive deeper into the code.
-							- I will finish my talk with a quick look at preliminary results for a CRB damage survey performed by Sulav on Efate
-							- The survey was performed using methods we use for 10 surveys on Guam, 1 survey on Rota and 1 survey on Majuro with the following exceptions:
-								- the smart phone camera was hand-held and not mounted to the outside of a vehicle  
-								- most shots were automatically triggered at 1 s intervals, but some were normal snapshots
-								- some shots were taken from a canoe. Now that's island style!
-							- when I press on the hyperlink below we will go to the public GitHub repository for this survey
+						<aside class="notes" data-markdown>
+						- I don't have time to dive deeper into the code.
+						- I will now finish my talk with a quick look at preliminary results for a CRB damage survey performed by Sulav on Efate
+						- The survey was performed using methods we use for 10 surveys on Guam, 1 survey on Rota and 1 survey on Majuro with the following exceptions:
+							- the smart phone camera was hand-held and not mounted to the outside of a vehicle  
+							- most shots were automatically triggered at 1s intervals, but some were manually triggered
+							- and some shots were taken from a canoe. Now that's island style!
+						- when I press on the hyperlink below we will go to the public GitHub repository for this survey
+						- END
 						</aside>
 					</textarea>
 				</section>
